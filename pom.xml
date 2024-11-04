@@ -30,38 +30,54 @@
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+		<!-- Para la integración con JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!-- Spring Boot Starter para el backend -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Para OpenAPI y documentación de Swagger UI -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.0.3</version>
 		</dependency>
 
+		<!-- Para la validación de datos en el modelo -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>8.0.0.Final</version>
 		</dependency>
 
+		<!-- Para el mapeo de objetos entre DTOs y entidades -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>3.1.1</version>
 		</dependency>
 
+		<!-- OpenAPI Generator Maven Plugin -->
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>openapi-generator-maven-plugin</artifactId>
+			<version>6.0.1</version> <!-- Usa la versión estable más reciente -->
+		</dependency>
+
+		<!-- Base de datos H2 para pruebas en entorno local -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- Para pruebas unitarias y de integración -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -75,6 +91,31 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>7.9.0</version>
+				<executions>
+					<execution>
+						<id>generate-api</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/contract/contract.yaml</inputSpec> <!-- Ruta del archivo YAML -->
+							<generatorName>spring</generatorName>
+							<output>${project.basedir}/src/main/java</output> <!-- Directorio de salida -->
+							<apiPackage>com.ccsw.ludoteca.api</apiPackage> <!-- Paquete para los controladores -->
+							<modelPackage>com.ccsw.ludoteca.api.model</modelPackage> <!-- Paquete para los modelos -->
+							<generateApiTests>false</generateApiTests> <!-- Opcional: No generar pruebas para los endpoints -->
+							<generateModelTests>false</generateModelTests> <!-- Opcional: No generar pruebas para los modelos -->
+							<interfaceOnly>true</interfaceOnly> <!-- Indicar a OpenAPI Generator que genere interfaces -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
