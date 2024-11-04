@@ -1,0 +1,56 @@
+# Archivos y directorios generados por IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+*.ipr
+
+# Archivos de configuración específicos de IntelliJ Run/Debug
+.idea/runConfigurations/
+.idea/workspace.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/sonarlint/
+
+# Archivos de compilación y configuración de Maven/Gradle
+target/
+build/
+
+# Archivos de configuración de Maven
+.mvn/
+!**/src/main/resources/.keep
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Dependencias y archivos de Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.properties
+gradle-app.setting
+
+# Archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de log
+*.log
+
+# Archivos específicos de Eclipse (si otros colaboradores usan Eclipse)
+.project
+.classpath
+.cproject
+.settings/
+
+# Archivos de entorno de desarrollo local
+.env
+.env.*
+
+# Archivos de configuración y otros archivos ocultos
+*.swp
+*~
+
+# Librerías externas que no deben incluirse en el repositorio
+libs/
