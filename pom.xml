@@ -63,13 +63,6 @@
 			<version>3.1.1</version>
 		</dependency>
 
-		<!-- OpenAPI Generator Maven Plugin -->
-		<dependency>
-			<groupId>org.openapitools</groupId>
-			<artifactId>openapi-generator-maven-plugin</artifactId>
-			<version>6.0.1</version> <!-- Usa la versión estable más reciente -->
-		</dependency>
-
 		<!-- Base de datos H2 para pruebas en entorno local -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -84,39 +77,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.openapitools</groupId>
-				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>7.9.0</version>
-				<executions>
-					<execution>
-						<id>generate-api</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>${project.basedir}/contract/contract.yaml</inputSpec> <!-- Ruta del archivo YAML -->
-							<generatorName>spring</generatorName>
-							<output>${project.basedir}/src/main/java</output> <!-- Directorio de salida -->
-							<apiPackage>com.ccsw.ludoteca.api</apiPackage> <!-- Paquete para los controladores -->
-							<modelPackage>com.ccsw.ludoteca.api.model</modelPackage> <!-- Paquete para los modelos -->
-							<generateApiTests>false</generateApiTests> <!-- Opcional: No generar pruebas para los endpoints -->
-							<generateModelTests>false</generateModelTests> <!-- Opcional: No generar pruebas para los modelos -->
-							<interfaceOnly>true</interfaceOnly> <!-- Indicar a OpenAPI Generator que genere interfaces -->
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-		</plugins>
-	</build>
 
 </project>
