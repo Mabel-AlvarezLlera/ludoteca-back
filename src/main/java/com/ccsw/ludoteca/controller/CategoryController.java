@@ -46,7 +46,6 @@ public class CategoryController {
 
     /**
      * Método para crear una categoría
-     * @param id PK de la entidad
      * @param categoryDto datos de la entidad
      */
     @Operation(summary = "Save", description = "Create a Category")
